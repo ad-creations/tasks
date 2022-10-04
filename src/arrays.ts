@@ -9,10 +9,13 @@ export function bookEndList(numbers: number[]): number[] {
     if (clonedNumbers.length <= 0) {
         return [];
     } else if (clonedNumbers.length == 1) {
-        const short = [clonedNumbers[0], ...clonedNumbers];
+        const short = [...clonedNumbers, ...clonedNumbers];
         return short;
     } else {
-        const firstLast = [clonedNumbers[0], clonedNumbers[-1]];
+        const firstLast = [
+            clonedNumbers[0],
+            clonedNumbers[clonedNumbers.length - 1]
+        ];
         return firstLast;
     }
 }
@@ -22,7 +25,8 @@ export function bookEndList(numbers: number[]): number[] {
  * number has been tripled (multiplied by 3).
  */
 export function tripleNumbers(numbers: number[]): number[] {
-    return numbers;
+    const triple = numbers.map((num: number): number => num * 3);
+    return triple;
 }
 
 /**
@@ -30,7 +34,14 @@ export function tripleNumbers(numbers: number[]): number[] {
  * the number cannot be parsed as an integer, convert it to 0 instead.
  */
 export function stringsToIntegers(numbers: string[]): number[] {
-    return [];
+    const ints = numbers.map((name: string): number => {
+        if (isNaN(parseInt(name))) {
+            return 0;
+        } else {
+            return parseInt(name);
+        }
+    });
+    return ints;
 }
 
 /**
