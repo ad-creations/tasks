@@ -1,4 +1,4 @@
-import { info } from "console";
+//import { info } from "console";
 import { Answer } from "./interfaces/answer";
 import { Question, QuestionType } from "./interfaces/question";
 import { makeBlankQuestion } from "./objects";
